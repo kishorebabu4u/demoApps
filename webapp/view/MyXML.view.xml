@@ -7,7 +7,11 @@ xmlns:t="sap.ui.table"
 	controllerName="mickey.controller.MyXML">
 
 	<t:Table rows="{/empTab}" selectionMode="Single" visibleRowCount="4" rowSelectionChange="onRowSelect">
-
+<t:extension>
+            <Toolbar >
+                <Button icon="sap-icon://delete" type="Transparent" press="onDelete" />
+            </Toolbar>
+        </t:extension>
 		<t:columns>
 
 			<t:Column>
@@ -159,7 +163,7 @@ xmlns:t="sap.ui.table"
 
 				<content>
 
-					<Switch id="idModel" change="onModelFlip" customTextOn="Default" customTextOff="Avenger"/>
+					<Switch id="idModel" change="onModelFlip" customTextOn="on" customTextOff="off"/>
 
 				</content>
 

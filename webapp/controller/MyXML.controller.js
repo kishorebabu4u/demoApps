@@ -49,9 +49,22 @@ sap.ui.define([
 
 
         },
+        index: undefined,
+        onDelete: function(){
+            if(this.index === undefined) {
+                MessageToast.show("Please Select a Row");
+                return;
+            }
+            var oModel = sap.ui.getCore().getModel();
+            var aData = oModel.getProperty("/empTab");
+            aData.splice(this.index, 1);
+            oModel.setProperty("/empTab", aData);
+            this.index = undefined;
+        },
         onRowSelect: function (oEvent) {
             console.log(oEvent.getParameter("rowContext").getPath());
             var sPath = oEvent.getParameter("rowContext").getPath();
+             this.index = oEvent.getParameter("rowIndex");
             this.getView().byId("myForm").bindElement(sPath);
 
         },
