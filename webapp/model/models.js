@@ -1,6 +1,8 @@
 sap.ui.define([
-    'sap/ui/model/json/JSONModel'
-], function(JSONModel) {
+    'sap/ui/model/json/JSONModel',
+     'sap/ui/model/xml/XMLModel',
+      'sap/ui/model/resource/ResourceModel'
+], function(JSONModel, XMLModel,  ResourceModel) {
     'use strict';
     
     return {
@@ -12,11 +14,25 @@ sap.ui.define([
             oModel.loadData(sFilePath);
             return oModel;
         },
-        createXMLModel: function() {
-            return "";
+         createXMLModel: function() {
+
+            var oModel = new XMLModel();
+
+            oModel.loadData("model/mockdata/mydata.xml");
+
+            return oModel;
         },
-        createResourceModel: function() {
-            return "";
+         createResourceModel: function() {
+
+            var oModel = new ResourceModel({
+
+                bundleUrl : 'i18n/i18n.properties'
+
+            });
+
+            
+
+            return oModel;
         }
     };
 

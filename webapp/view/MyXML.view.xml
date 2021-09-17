@@ -6,7 +6,7 @@ xmlns:t="sap.ui.table"
 
 	controllerName="mickey.controller.MyXML">
 
-	<t:Table rows="{/empTab}" selectionMode="Single" visibleRowCount="4" rowSelectionChange="onRowSelect">
+	<t:Table id="myTable" rows="{/empTab}" selectionMode="Single" visibleRowCount="4" rowSelectionChange="onRowSelect">
 <t:extension>
             <Toolbar >
                 <Button icon="sap-icon://delete" type="Transparent" press="onDelete" />
@@ -18,7 +18,7 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Emp Id"/>
+					<Text text="{i18n>XTIT_EMPNO}"/>
 
 				</t:label>
 
@@ -34,7 +34,7 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Emp Name"/>
+					<Text text="{i18n>XTIT_EMPNAME}"/>
 
 				</t:label>
 
@@ -50,7 +50,7 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Salary"/>
+					<Text text="{i18n>XTIT_SALARY}"/>
 
 				</t:label>
 
@@ -66,13 +66,13 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Smoker"/>
+					<Text text="{i18n>XTIT_SMK}"/>
 
 				</t:label>
 
 				<t:template>
 
-					<CheckBox selected="{smoker}" ></CheckBox>
+					<CheckBox selected="{=${smoker}==='true'?true:false}" ></CheckBox>
 
 				</t:template>
 
@@ -82,7 +82,7 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Gender"/>
+					<Text text="{i18n>XTIT_GEN}"/>
 
 				</t:label>
 
@@ -98,7 +98,7 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Marital Status"/>
+					<Text text="{i18n>XTIT_GEN}"/>
 
 				</t:label>
 
@@ -123,7 +123,7 @@ xmlns:t="sap.ui.table"
 
 				<t:label>
 
-					<Text text="Rating"/>
+					<Text text="{i18n>XTIT_RATE}"/>
 
 				</t:label>
 

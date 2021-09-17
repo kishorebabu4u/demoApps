@@ -5,8 +5,8 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
 
     "mickey/model/models",
-    
-     "mickey/util/lifeSaver"
+
+    "mickey/util/lifeSaver"
 
 ], function (Controller, JSONModel, myModel, lifeSaver) {
 
@@ -46,12 +46,16 @@ sap.ui.define([
 
             sap.ui.getCore().setModel(oModelGOT, "fire");
 
+            var oXMLModel = myModel.createXMLModel();
 
+            sap.ui.getCore().setModel(oXMLModel);
+            var oResource = myModel.createResourceModel();
 
+            sap.ui.getCore().setModel(oResource, "i18n");
         },
         index: undefined,
-        onDelete: function(){
-            if(this.index === undefined) {
+        onDelete: function () {
+            if (this.index === undefined) {
                 MessageToast.show("Please Select a Row");
                 return;
             }
@@ -64,7 +68,7 @@ sap.ui.define([
         onRowSelect: function (oEvent) {
             console.log(oEvent.getParameter("rowContext").getPath());
             var sPath = oEvent.getParameter("rowContext").getPath();
-             this.index = oEvent.getParameter("rowIndex");
+            this.index = oEvent.getParameter("rowIndex");
             this.getView().byId("myForm").bindElement(sPath);
 
         },
